@@ -127,7 +127,7 @@ for z in range(neuron_num):
         q = spikes[k]*ms
         q = round(q*10/ms/ms);
         t1[z,q]=1
-        
+volts = M.v   
 spiketrain = np.vstack((spiketrain,t1)) # row = neuron num, column = time, value of 1 = spike from neuron i at time j 
 spiketrain = spiketrain[1:len(spiketrain),] #remove empty row that initialized spiketrain
 savemat("spikes.mat", mdict={'arr': spiketrain})
