@@ -12,6 +12,9 @@ NVIP = 140; % number of VIP neurons
 %% Background Current (used at the end of code)
 bc = 75 % if doing stimulation/increasing ensemble connection weights
 bc = 100 % if looking at spontaneous activity
+
+numframs = 20000; % if doing stimulation
+numframs = 50000; % if doing spontaneous activity
 %% Preferred Orientation (po)
 po_exc = linspace(0,pi,NE)+ 1/10*(rand(1,NE)-.5); %goes from 0 to pi with some variability 
 save('po_exc.mat','po_exc')
@@ -389,12 +392,12 @@ save('InhData.mat','dataI')
 N = 4000;
 NE = 3200;
 memC = 200; %membrane capacitance
-rstim = rand(N,20000)*5*memC; %creating random noise between 0 and 5 mV and converting to current
-rstim2 = randi([-1 1],N,20000); %making some of the noise hyperpolarizing and some depolarizing
+rstim = rand(N,numframs)*5*memC; %creating random noise between 0 and 5 mV and converting to current
+rstim2 = randi([-1 1],N,numframs); %making some of the noise hyperpolarizing and some depolarizing
 %making noise sparse 
-rstim3 = randi([0 1],N,20000);
+rstim3 = randi([0 1],N,numframs);
 for i = 1:5 
-    rstim3 = rstim3.*randi([0 1],N,20000);
+    rstim3 = rstim3.*randi([0 1],N,numframs);
 end
 rstim4 = rstim.*rstim2.*rstim3;
 
