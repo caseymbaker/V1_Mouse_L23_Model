@@ -71,7 +71,7 @@ ylabel('Number of Connections')
 title('E->E')
 h.FaceColor = [0 0 0];
 EEv = wEE2; %mV EPSP
-wEE = wEE2/0.3201; %weight
+wEE = wEE2/0.3021; %weight
 %% E->PV connectivity (repeat above steps for rest of connection types)
 
 wEPV = ab(1:3200,3201:3530);
