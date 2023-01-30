@@ -77,11 +77,7 @@ memc = 200.0*pfarad  # Membrane capacitance
 tau_ampa = 5*ms   # Glutamatergic synaptic time constant
 tau_gaba = 10.0*ms  # GABAergic synaptic time constant
 spiketrain =np.ones((1,50000))*100 #remove this at the end, just initializing 
-z2=0
 
-
-        
-z2=z2+1
 P2 = TimedArray(stim*pA,dt =defaultclock.dt)
    
 eqs = '''
