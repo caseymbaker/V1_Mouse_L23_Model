@@ -25,6 +25,7 @@ If you use any code from this repository, please cite:
 ![plot](./Miscellaneous/network.png)
 
 *Black/Grey bars are from in vivo studies*
+
 *see [Methods](publication link) for more details*
 
 ## Code Information
