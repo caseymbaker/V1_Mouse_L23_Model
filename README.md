@@ -31,5 +31,6 @@ If you use any code from this repository, please cite:
 1. Run CreateNetwork/MakeNetwork.m to generate the connection weights between all neurons and generate background current 
    1. change numframs and bc variables based on if you are going to stimulate neurons in the network
 2. Run CreateNetwork/SelectNeuronsToStim.m to generate pairs of neurons in the same ensemble to stimulate
-3. Run code in RunStimulation folder 
-   1. output: volts.mat and spikes.mat which are variables that have the voltage and spiking information for each neuron for each trial
+3. Run code in RunSimulation folder
+   1. RunWithStim.py if you plan to stimulate pattern completion neurons. RunWithoutStim.py if looking at spontaneous activity
+   2. output: volts.mat and spikes.mat which are variables that have the voltage and spiking information for each neuron for each trial
