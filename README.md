@@ -10,6 +10,12 @@ If you use any code from this repository, please cite:
  
 ## Network Information 
 
+**Highlights**
+- 4000 Leaky Integrate-and-Fire Neurons
+    - 3200 Excitatory
+    - 800 Inhibitory
+       - d
+
 ![plot](./Miscellaneous/schematic.png)
 
 
