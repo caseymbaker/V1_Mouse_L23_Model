@@ -41,6 +41,8 @@ clust = find(bc<50);
 %%
 c = randsample(clust,1);%picking a cluster at random
 nrnidxs = find(idx==c);%get neurons from that cluster
+save('clusterinfo.mat','c','idx','clust')
+
 %% increase weights between cluster neurons
 load('ExcData_old.mat')
 for i=1:length(nrnidxs)
