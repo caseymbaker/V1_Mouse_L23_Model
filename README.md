@@ -29,7 +29,7 @@ If you use any code from this repository, please cite:
 ## Code Information
 
 1. Run CreateNetwork/MakeNetwork.m to generate the connection weights between all neurons and generate background current 
- - change numframs and bc variables based on if you are going to stimulate neurons in the network
+1. change numframs and bc variables based on if you are going to stimulate neurons in the network
 2. Run CreateNetwork/SelectNeuronsToStim.m to generate pairs of neurons in the same ensemble to stimulate
 3. Run code in RunStimulation folder 
- - output: volts.mat and spikes.mat which are variables that have the voltage and spiking information for each neuron for each trial
+1. output: volts.mat and spikes.mat which are variables that have the voltage and spiking information for each neuron for each trial
