@@ -14,7 +14,12 @@ If you use any code from this repository, please cite:
 - 4000 Leaky Integrate-and-Fire Neurons
     - 3200 Excitatory
     - 800 Inhibitory
-       - d
+       - 330 PV
+       - 330 SOM
+       - 140 VIP
+- Connection weights follow a lognormal distribution 
+- Excitatory connections are influenced by similarity in preferred orientation
+- Connectivity Pattern:
 
 ![plot](./Miscellaneous/schematic.png)
 
