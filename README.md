@@ -19,6 +19,7 @@ If you use any code from this repository, please cite:
        - 140 VIP
 - Connection weights follow a lognormal distribution 
 - Excitatory connections are influenced by similarity in preferred orientation
+
 **Connectivity Pattern:**
 
 ![plot](./Miscellaneous/schematic.png)
