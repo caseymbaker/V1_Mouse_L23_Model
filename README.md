@@ -23,6 +23,6 @@ If you use any code from this repository, please cite:
 
 ![plot](./Miscellaneous/schematic.png)
 
-*see [Methods](publication link) for more details 
+*see [Methods](publication link) for more details*
 
 ## Code Information
