@@ -3,7 +3,7 @@ Code to create a spiking model of layer 2/3 of mouse visual cortex and simulate 
 
 Background 
 
-![plot](./Miscellaneous/Picture13.tif)
+![plot](./Miscellaneous/schematic.svg)
 
 Network Information 
 
