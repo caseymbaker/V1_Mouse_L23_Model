@@ -20,9 +20,9 @@ If you use any code from this repository, please cite:
 - Connection weights follow a lognormal distribution 
 - Excitatory connections are influenced by similarity in preferred orientation
 
-**Connectivity Pattern:**
+**Connectivity Pattern, Resting Potential, and Spontaneous Firing Rates:**
 
-![plot](./Miscellaneous/schematic.png)
+![plot](./Miscellaneous/network.png)
 
 *see [Methods](publication link) for more details*
 
