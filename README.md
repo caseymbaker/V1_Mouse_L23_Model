@@ -36,3 +36,4 @@ If you use any code from this repository, please cite:
 3. Run code in RunSimulation folder
    1. RunWithStim.py if you plan to stimulate pattern completion neurons. RunWithoutStim.py if looking at spontaneous activity
    2. output: volts.mat and spikes.mat which are variables that have the voltage and spiking information for each neuron for each trial
+4. Run Analysis/AnalyzeNetworkActivity to get network parameters, latency measures, and pattern completion capability for neuron pairs stimulated
