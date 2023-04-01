@@ -47,7 +47,7 @@ save('clusterinfo.mat','c','idx','clust')
 load('ExcData_old.mat')
 for i=1:length(nrnidxs)
 n1 = find(dataE(:,1) == nrnidxs(i));
-n2 = find(dataE(:,2) < 3201);
+n2 = find(ismember(dataE(:,2), nrnidxs));
 n3 = intersect(n1,n2);
 dataE(n3,3) = dataE(n3,3)*3.5;
 end
