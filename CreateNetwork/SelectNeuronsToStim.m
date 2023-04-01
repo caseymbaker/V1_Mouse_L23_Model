@@ -52,7 +52,7 @@ n3 = intersect(n1,n2);
 dataE(n3,3) = dataE(n3,3)*3.5;
 end
 save('ExcData.mat','dataE')
-%% run if picking 5 sets of 2 neurons at random from the same cluster (for increase EXC weights, not sameclusterneuronstim)
+%% run if picking 5 sets of 2 neurons at random from the same cluster 
 for i = 1:5
 nodes = randsample(nrnidxs,2);
 txt = ['nods' num2str(i) '.mat'];
