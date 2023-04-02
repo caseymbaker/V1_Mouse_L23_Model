@@ -36,8 +36,8 @@ end
 [idx,cat,sumd] = kmeans(con,50); %ensemble size should be ~ 30 neurons
 bc = histogram(idx,length(unique(idx))).BinCounts;
 histogram(bc(bc<900)) %histogram of ensemble sizes (excluding clusters > 900 neurons)
-%find clusters of size <50 
-clust = find(bc<50);
+%find clusters of size <120 
+clust = find(bc<120);
 %%
 c = randsample(clust,1);%picking a cluster at random
 nrnidxs = find(idx==c);%get neurons from that cluster
