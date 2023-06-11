@@ -159,16 +159,20 @@ end
 
 
 %% get network params
+clusternrns = find(idx == c);
 load('Gfile.mat')
 newG = A(clustnrns,clustnrns);
 newG(newG<3) = 0;
 [X,Y] = meshgrid(1:sz,1:sz);
 Y = Y(:);
 X = X(:);
+weighted_deg = sum(newG,2);
 newG = newG(:);
 pos = find(newG > 0);
 G = digraph(Y(pos),X(pos),newG(pos));
-
+presyn = cell(2,numneuron);
+postsyn = cell(2,numneuron);
+outclose = centrality(G,'outcloseness','Cost',cost);
 outdeg_weighted = zeros(2,numneuron);
 centrality_outcloseness = zeros(2,numneuron);
 centrality_betweenness = zeros(2,numneuron);
