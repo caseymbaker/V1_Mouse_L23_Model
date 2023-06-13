@@ -11,33 +11,34 @@ function [PCC, Latency, NetworkParams] = AnalyzeNetworkActivity(numneuron, numru
 % Latency = (clustsize * numneuron) cell that gives the latency values for
 % each neuron for each trial
 
-% NetworkParams = (numneuron * 5) matrix where each column is a network
+% NetworkParams = (numneuron * 4) matrix where each column is a network
 % parameter for the given neuron pair
 % column 1 = weighted degree
 % column 2 = closeness centrality
-% column 3 = betweenness centrality
 % column 4 = intersection
 % column 5 = union
 %% initializing variables 
 numruns = numruns * 8; % *8 because there are 8 stims in the 250ms period
-pertrial_meanV = zeros(numneuron,5*numruns); %mean voltage in 10ms before stim for each ensemble neuron for each trial
-pertrial_medV = zeros(numneuron,5*numruns); %median voltage in 10ms before stim for each ensemble neuron for each trial
-ensemble = zeros(numneuron,5*numruns); %number of active neurons in 10ms after stim for each trial
-pertrialVoltage = cell(numneuron,5*numruns); %cell of voltage traces for each ensemble neuron for each trial
-spks = cell(numneuron,5*numruns); %cell of spikes for each ensemble neuron for each trial
+pertrial_meanV = zeros(numneuron,numruns); %mean voltage in 10ms before stim for each ensemble neuron for each trial
+pertrial_medV = zeros(numneuron,numruns); %median voltage in 10ms before stim for each ensemble neuron for each trial
+ensemble = zeros(numneuron,numruns); %number of active neurons in 10ms after stim for each trial
+pertrialVoltage = cell(numneuron,numruns); %cell of voltage traces for each ensemble neuron for each trial
+spks = cell(numneuron,numruns); %cell of spikes for each ensemble neuron for each trial
 
-cd(folder)
+%cd(folder)
 load('clusterinfo.mat')
 cluster = find(idx == c);
 sz = length(cluster); %number of neurons in ensemble
 %% calculating trial info
 for i = 1:numneuron
+    i
 z = 1;
-for j = 1:numruns
 
 load(['spikes' num2str(i) '.mat']);
 load(['volt' num2str(i) '.mat']);
-for k = 1:5
+for k = 1:numruns/8
+
+    
     v = squeeze((volts(k,cluster,:)));
     s = (k-1)*4000+1;
     a = arr(s:(s+3199),:);
@@ -56,7 +57,6 @@ for k = 1:5
         start = start + 333;
         z=z+1;
     end
-end
 end
 end
 
@@ -159,7 +159,7 @@ end
 
 
 %% get network params
-clusternrns = find(idx == c);
+clustnrns = find(idx == c);
 load('Gfile.mat')
 newG = A(clustnrns,clustnrns);
 newG(newG<3) = 0;
@@ -169,13 +169,14 @@ X = X(:);
 weighted_deg = sum(newG,2);
 newG = newG(:);
 pos = find(newG > 0);
+wt = newG(pos);
+cost = max(wt)-wt+0.01;
 G = digraph(Y(pos),X(pos),newG(pos));
 presyn = cell(2,numneuron);
 postsyn = cell(2,numneuron);
 outclose = centrality(G,'outcloseness','Cost',cost);
 outdeg_weighted = zeros(2,numneuron);
 centrality_outcloseness = zeros(2,numneuron);
-centrality_betweenness = zeros(2,numneuron);
 samesuccess = zeros(1,numneuron);
 numneuronspost = zeros(1,numneuron);
 for i = 1:numneuron
@@ -189,12 +190,10 @@ for i = 1:numneuron
   outdeg_weighted(2,i) = weighted_deg(b);
   centrality_outcloseness(1,i) = outclose(a);
   centrality_outcloseness(2,i) = outclose(b);
-  centrality_betweenness(1,i) = between(a);
-  centrality_betweenness(2,i) = between(b);
 
 end
 
-NetworkParams = [sum(outdeg_weighted)',sum(centrality_outcloseness)', sum(centrality_betweenness)',samesuccess', numneuronspost'];
+NetworkParams = [sum(outdeg_weighted)',sum(centrality_outcloseness)',samesuccess', numneuronspost'];
 NetworkParams = normalize(NetworkParams,1);
 
 
